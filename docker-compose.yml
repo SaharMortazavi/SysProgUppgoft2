@@ -20,7 +20,7 @@ Services:
   frontend:
     build: frontend/.
     ports:
-      - "3010:3010"
+      - 3010:3010
     volumes:
       - ./frontend/:/project-root
       - nodemodules:/project-root/node_modules
@@ -37,7 +37,7 @@ Services:
       - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
       - ./database/data:/data/saltmerch-db
     ports:
-      - "5432:5432"
+      - 5432:5432
     restart: unless-stopped
 volumes:
   m2repo:
