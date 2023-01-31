@@ -1,0 +1,10 @@
+spring:
+  datasource:
+#    url: jdbc:postgresql://localhost:5432/saltmerch
+    url: jdbc:postgresql://database/saltmerch
+    username: jensenyh
+    password: password
+
+#server:
+#  port: 8099
+#  servlet.contextPath: /api/v1
