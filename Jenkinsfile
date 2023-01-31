@@ -10,9 +10,9 @@ pipeline {
     
     stages {
         stage('clean and checkout') {
+            dir('backend')
             steps {
-            
-             
+                sh 'pwd'
                 sh 'mvn clean'
                 echo 'downloading github project...'
                 git branch: 'main', credentialsId: 'SaharMortazavi', url: 'https://github.com/SaharMortazavi/SysProgUppgoft2.git'
