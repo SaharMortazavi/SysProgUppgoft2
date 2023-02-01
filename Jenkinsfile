@@ -7,7 +7,6 @@ pipeline {
         maven "MY_MAVEN"
     }
 
-    
     stages {
         stage('clean and checkout') {
             dir('backend')
@@ -16,8 +15,7 @@ pipeline {
                 sh 'mvn clean'
                 echo 'downloading github project...'
                 git branch: 'master', credentialsId: 'zeynepcs', url: 'https://github.com/SaharMortazavi/SysProgUppgoft2.git'
-            }
-            
+            }            
      }
        
         stage('build') {
