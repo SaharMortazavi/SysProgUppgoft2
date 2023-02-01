@@ -19,25 +19,20 @@ pipeline {
      }
        
         stage('build') {
+           dir('backend')
             steps {
                 echo 'building...'
-                sh 'mvn test-compile'
+                sh 'mvn package'
                 echo 'finished building'
             }
         }
-
-        stage('Test') {
+        
+         stage('deploy') {
+            dir('backend')
             steps {
-                echo 'starting test.....'
-                sh 'mvn surefire:test'
-                echo 'finished test'
-            }
-
-        stage('package') {
-            steps {
-                echo 'packaging...'
-                sh 'mvn war:war'
-                echo 'packaged'
+                echo 'deploying...'
+                sh 'cp backend/target/ROOT.war /artifacts'
+                echo 'deployed'
             }
         }
     }
