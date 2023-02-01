@@ -9,18 +9,18 @@ pipeline {
 
     stages {
         stage('clean and checkout') {
-            dir("backend"){
             steps {
+            dir("backend") {
                 sh 'mvn clean'
                 echo 'downloading github project...'
                 git branch: 'master', credentialsId: 'zeynepcs', url: 'https://github.com/SaharMortazavi/SysProgUppgoft2.git'
             }            
      }
-   }  
+  }  
         
         stage('build') {
-           dir("backend"){
-            steps {
+           steps {
+            dir("backend") {
                 echo 'building...'
                 sh 'mvn package'
                 echo 'finished building'
@@ -28,8 +28,8 @@ pipeline {
         }
       }  
          stage('deploy') {
-            dir("backend"){
-            steps {
+           steps {
+            dir("backend") {
                 echo 'deploying...'
                 sh 'cp backend/target/ROOT.war /artifacts'
                 echo 'deployed'
@@ -37,4 +37,4 @@ pipeline {
         }
     }
  }
-}
+ }
