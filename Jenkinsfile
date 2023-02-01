@@ -19,11 +19,6 @@ pipeline {
             }
             
      }
-        stage('Test') {
-            steps {
-                sh 'mvn test'
-            }
-            
        
         stage('build') {
             steps {
@@ -33,7 +28,12 @@ pipeline {
             }
         }
 
-       
+        stage('Test') {
+            steps {
+                echo 'starting test.....'
+                sh 'mvn surefire:test'
+                echo 'finished test'
+            }
 
         stage('package') {
             steps {
@@ -43,6 +43,3 @@ pipeline {
             }
         }
     }
-
-    
-}
