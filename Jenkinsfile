@@ -15,7 +15,7 @@ pipeline {
                 sh 'pwd'
                 sh 'mvn clean'
                 echo 'downloading github project...'
-                git branch: 'master', credentialsId: 'SaharMortazavi', url: 'https://github.com/SaharMortazavi/SysProgUppgoft2.git'
+                git branch: 'master', credentialsId: 'zeynepcs', url: 'https://github.com/SaharMortazavi/SysProgUppgoft2.git'
             }
             
      }
