@@ -11,7 +11,7 @@ pipeline {
         stage('clean and checkout') {
             steps {
             dir("backend") {
-                sh 'mvn clean'
+                sh 'mvn clean -f backend'
                 echo 'downloading github project...'
                 git branch: 'master', credentialsId: 'zeynepcs', url: 'https://github.com/SaharMortazavi/SysProgUppgoft2.git'
             }            
@@ -22,7 +22,7 @@ pipeline {
            steps {
             dir("backend") {
                 echo 'building...'
-                sh 'mvn package'
+                sh 'mvn package -f backend'
                 echo 'finished building'
             }
         }
